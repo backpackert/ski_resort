@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<form  class="form-2" method="post">
+    {% csrf_token %}
+    {{ form.brief }}<br>
+    {{ form.full_text }}<br>
+    {{ form.date }}<br>
+    {{ form.user }}<br>
+    <span>{{ error }}</span>
+    <button class="btn btn-success" type="submit">Add a review</button>
+</form>
+
+
+{% endblock %}

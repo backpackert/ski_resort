@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div  class="card-deck mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    {% for category in object_list %}
+    <div class="container px-4 gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ category.name }}</h4>
+            </div>
+      <div class="card-body">
+          <h6 class="my-0 fw-normal">{{ category.description }}</h6>
+          {% if category.image %}
+       <a href="{% url 'product' category.id %}"><img class="rounded" width="150" height="100" src="{{ category.image.url }}"></a>
+          {% endif %}
+
+          <a href="{% url 'product' category.id %}"><button type="button" class="w-100 btn btn-lg btn-outline-secondary">View all</button></a>
+      </div>
+    </div>
+  </div>{% endfor %}
+      </div>
+
+</div>
+
+{% endblock %}

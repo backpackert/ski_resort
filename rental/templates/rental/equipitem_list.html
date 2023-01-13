@@ -1,0 +1,44 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+{% if object_list %}
+<div  class="card-deck mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
+    {% for equipitem in object_list %}
+    <div class="container px-4 gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ equipitem.name }}</h4>
+            </div>
+      <div class="card-body">
+          {% if equipitem.image %}
+       <img class="rounded" width="150" height="130" src="{{ equipitem.image.url }}">
+          {% endif %}
+          <div class="vim d-quantity" data-testid="d-quantity">
+              <label class="d-quantity__label" for="qtyTextBox"><span class="ux-textspans">Quantity:</span></label>
+              <div class="d-quantity__value">
+                  <div class="d-quantity__wrapper"><span class="textbox d-quantity__input">
+                      <input id="qtyTextBox" class="textbox__control" type="text" value="1" name="quantity" size="4" aria-describedby="qtyErrMsg" autocomplete="off"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="itemCounter" data-quantity="">
+<span class="text">Quantity:</span> <span class="value" data-value="1" data-max="34" data-partnumber="10386539">
+<span class="action disabled br" data-action="minus">-</span>
+<input class="val" readonly="" type="number" value="1" maxlength="3" max="34" min="1" data-value="1">
+<span class="action" data-action="sum">+</span>
+</span>
+</div>
+          <h1 class="card-title pricing-card-title">{{ equipitem.price }} $</h1>
+
+      </div>
+    </div>
+  </div>{% endfor %}
+                {% else %}
+    <h3>There are no items in the category.</h3>
+        {% endif %}
+      </div>
+
+</div>
+
+{% endblock %}

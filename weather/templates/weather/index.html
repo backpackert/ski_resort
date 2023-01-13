@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-9 offset-0">
+            <div class="alert alert-light">
+                <img src="http://openweathermap.org/img/w/{{ info.icon }}.png"
+                                                 alt="Weather photo" class="img-thumbnail"><h3>Weather in Zakopane</h3><br>
+
+                <b>Temperature: </b>{{ info.temp }}<sup>o</sup><br>
+                <b>Humidity: </b>{{ info.humidity }} %<br>
+                <b>Wind: </b>{{ info.wind }} m/s <br>
+
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+ <body>
+  <form>
+   <p>Choose the date: <input type="date" name="calendar">
+   <input type="submit" value="Choose"></p>
+  </form>
+ </body>
+{% endblock %}
+

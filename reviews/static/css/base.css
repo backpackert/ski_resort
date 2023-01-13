@@ -1,0 +1,5 @@
+body .form-group
+    {margin: 10px 0;}
+    input{width:250px;height: 25px;border-radius:3px;}
+
+

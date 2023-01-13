@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="text-beg">
+<a href="{% url 'create' %}"><div class="btn btn-warning">WRITE A REVIEW</div></a>
+</div><br>
+<div  class="card-deck mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
+    {% for review in object_list %}
+    <div class="container px-4 gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ review.brief }}</h4>
+                <h4 class="my-0 fw-normal">{{ review.full_text }}</h4>
+            </div>
+      <div class="card-body">
+          {% if review.image %}
+       <img class="rounded" width="150" height="130" src="{{ review.image.url }}"><br>
+          {% endif %}
+
+          <small class="text">{{ review.user }}</small>
+    <small class="text-muted">{{ review.date|date:"F d, Y" }}</small>
+      </div>
+    </div>
+  </div>{% endfor %}
+      </div>
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+    {% if object_list %}
+<div  class="card-deck mb-3 text-center">
+    <div class="row row-cols-1 row-cols-md-4 mb-3 text-center">
+    {% for productitem in object_list %}
+    <div class="container px-4 gy-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ productitem.name }}</h4>
+            </div>
+      <div class="card-body">
+          {% if productitem.image %}
+       <img class="rounded" width="150" height="130" src="{{ productitem.image.url }}">
+
+          <h1 class="card-title pricing-card-title">{{ productitem.price }} $</h1>
+
+      </div>
+    </div>
+  </div>{% endif %}
+        {% endfor %}
+        {% else %}
+    <h3>There are no products in the category.</h3>
+        {% endif %}
+      </div>
+
+</div>
+
+{% endblock %}
